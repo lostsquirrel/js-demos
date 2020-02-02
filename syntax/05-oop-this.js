@@ -38,4 +38,3 @@ const a = {
 
 console.assert(a.b.m() === undefined );
 
-console.assert();

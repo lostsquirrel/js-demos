@@ -1,5 +1,5 @@
 {
-  "name": "hello",
+  "name": "hello-node",
   "version": "1.0.0",
   "description": "node js hello world demo",
   "main": "server.js",

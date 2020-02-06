@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTMLCollection 接口</title>
+</head>
+<body>
+<img id="pic" src="http://example.com/foo.jpg" alt="foo">
+<a id="link" href="javascript: void(0)"></a>
+<form name="form" action=""></form>
+</body>
+<script>
+    const pic = document.getElementById('pic');
+    const link = document.getElementById('link');
+    const form = document.getElementsByName("form")[0];
+
+    console.assert(document.links instanceof HTMLCollection);
+    console.assert(document.images.pic === pic);
+    console.assert(document.images.namedItem('pic') === pic);
+    console.assert(document.links.link === link);
+    console.assert(document.forms.form === form, 'form');
+    console.log(document.forms.form);
+    console.log(form);
+    console.assert(document.forms.namedItem('form') === form, 'named form');
+    console.assert(document);
+    console.log(new Date())
+</script>
+</html>

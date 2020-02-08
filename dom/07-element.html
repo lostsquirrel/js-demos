@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Element 节点</title>
+</head>
+<body>
+<span id="myspan">123456789</span>
+<div id="mydiv">abcdefg</div>
+<button accesskey="h" id="btn">点击</button>
+</body>
+<script>
+    const p = document.createElement('p');
+    const myspan = document.getElementById('myspan');
+    const mydiv = document.getElementById('mydiv');
+    const btn = document.getElementById('btn');
+
+    console.assert(p.nodeName === 'P');
+    console.log(mydiv.dir);
+    console.assert(mydiv.dir === '');
+    myspan.dir = 'rtl';
+
+    console.assert(btn.accessKey === 'h');
+    console.assert(document.documentElement.lang === 'en');
+    console.assert(document);
+    console.assert(document);
+    console.assert(document);
+
+    btn.addEventListener('click', function () {
+        mydiv.hidden = !mydiv.hidden;
+    }, false);
+    console.log(new Date())
+
+</script>
+</html>

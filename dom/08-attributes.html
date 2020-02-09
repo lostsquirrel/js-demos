@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性的操作</title>
+</head>
+<body>
+<div id="myDiv" data-foo="bar" ></div>
+</body>
+<script>
+    const myDiv = document.getElementById('myDiv');
+    console.log(myDiv.attributes);
+    console.assert(myDiv.dataset.foo === 'bar');
+    myDiv.dataset.foo = 'baz'
+</script>
+</html>

@@ -1,0 +1,16 @@
+console.log(String.fromCharCode(0x20BB7));
+console.log(new Date());
+console.assert(String.fromCodePoint(0x20BB7) === '𠮷');
+console.assert(String.fromCodePoint(0x78, 0x1f680, 0x79) === 'x\uD83D\uDE80y');
+console.assert(String.raw`Hi\\n` === "Hi\\\\n");
+console.assert(!('\u01D1'==='\u004F\u030C'));
+console.assert('\u01D1'.length === 1);
+console.assert('\u004F\u030C'.length === 2);
+console.assert('\u01D1'.normalize() === '\u004F\u030C'.normalize());
+console.assert('\u004F\u030C'.normalize('NFC').length === 1);
+console.assert('\u004F\u030C'.normalize('NFD').length === 2);
+console.assert('hello'.repeat(2) === "hellohello");
+console.assert('na'.repeat(0) === "");
+console.assert('na'.repeat(2.9) === "nana");
+console.assert('na'.repeat('3') === "nanana");
+console.assert();

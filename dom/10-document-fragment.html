@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DocumentFragment 节点</title>
+</head>
+<body>
+<ul id="u1"></ul>
+<ul id="u2"></ul>
+</body>
+<script>
+    let docFrag = document.createDocumentFragment();
+    for (let i = 0;i < 5; i++) {
+        let li = document.createElement('li');
+        li.textContent = `Hello World(${i})`;
+        docFrag.appendChild(li);
+    }
+    document.getElementById('u1').appendChild(docFrag.cloneNode(true));
+
+    // console.log(docFrag.children.length)
+    function reverse(n) {
+        var f = document.createDocumentFragment();
+        while(n.lastChild) f.appendChild(n.lastChild);
+        n.appendChild(f);
+    }
+    reverse(docFrag);
+    document.getElementById('u2').appendChild(docFrag);
+</script>
+</html>

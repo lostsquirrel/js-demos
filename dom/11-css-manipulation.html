@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 操作</title>
+</head>
+<body>
+<div id="d_1">div 1</div>
+<div id="d_2">div 2</div>
+<div id="d_3">div 3</div>
+</body>
+<script>
+    let d1 = document.getElementById('d_1');
+    d1.setAttribute(
+        'style',
+        'background-color:red;' + 'border:1px solid black;'
+    );
+
+    let div = document.querySelector('div');
+    let divStyle = div.style;
+    divStyle.backgroundColor = 'red';
+    divStyle.border = '1px solid black';
+    divStyle.width = '600px';
+    divStyle.height = '400px';
+    divStyle.fontSize = '10em';
+
+
+    function isPropertySupported(property) {
+        if (property in document.body.style) return true;
+        var prefixes = ['Moz', 'Webkit', 'O', 'ms', 'Khtml'];
+        var prefProperty = property.charAt(0).toUpperCase() + property.substr(1);
+
+        for(var i = 0; i < prefixes.length; i++){
+            if((prefixes[i] + prefProperty) in document.body.style) return true;
+        }
+
+        return false;
+    }
+
+    console.assert(isPropertySupported('background-clip'));
+
+    let styleObj = window.getComputedStyle(div);
+    // console.log(styleObj.backgroundColor)
+    // console.log(typeof  styleObj.backgroundColor)
+    console.assert(styleObj.backgroundColor === 'rgb(255, 0, 0)');
+</script>
+</html>

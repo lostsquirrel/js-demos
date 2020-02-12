@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    const callback = function (records){
+        records.map(function(record){
+            console.log('Mutation type: ' + record.type);
+            console.log('Mutation target: ' + record.target);
+        });
+    };
+
+    const mo = new MutationObserver(callback);
+
+    const option = {
+        'childList': true,
+        'subtree': true
+    };
+
+    mo.observe(document.body, option);
+    for (let i = 0; i < 1000; i++) {
+        let p = document.createElement('p');
+        p.textContent = i;
+        document.body.appendChild(p)
+    }
+</script>
+</html>

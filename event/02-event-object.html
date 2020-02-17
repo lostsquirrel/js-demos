@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Object</title>
+</head>
+<body>
+<p id="para">Hello <em>World</em></p>
+</body>
+<script>
+    function hide(e) {
+        // 不管点击 Hello 或 World，总是返回 true
+        console.log(this === e.currentTarget);
+
+        // 点击 Hello，返回 true
+        // 点击 World，返回 false
+        console.log(this === e.target);
+        console.assert(e.type === 'click');
+        console.log(e.timeStamp);
+        console.assert(e.isTrusted === true);
+        console.assert(e.detail === 1);
+        console.log(e.composedPath())
+    }
+
+    document.getElementById('para').addEventListener('click', hide, false);
+</script>
+</html>

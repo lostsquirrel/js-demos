@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+</head>
+<body>
+
+</body>
+<script>
+    const locations = [
+        "处在键盘的主区域，或者无法判断处于哪一个区域。",
+        "处在键盘的左侧",
+        "处在键盘的右侧",
+        "处在数字小键盘。",
+    ];
+    function showChar(e) {
+        console.log('ALT: ' + e.altKey);
+        console.log('CTRL: ' + e.ctrlKey);
+        console.log('Meta: ' + e.metaKey);
+        console.log('Shift: ' + e.shiftKey);
+        console.log(e.key);
+        console.log(e.code);
+        console.log(locations[e.location]);
+        console.log('repeat: ' + e.repeat);
+        console.log('-----------------------------------------');
+    }
+
+    document.body.addEventListener('keydown', showChar, false);
+</script>
+</html>

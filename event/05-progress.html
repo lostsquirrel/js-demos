@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进度事件</title>
+</head>
+<body>
+
+</body>
+<script>
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener('progress', updateProgress, false);
+    xhr.addEventListener('load', transferComplete, false);
+    xhr.addEventListener('error', transferFailed, false);
+    xhr.addEventListener('abort', transferCanceled, false);
+
+    xhr.open();
+
+    function updateProgress(e) {
+        if (e.lengthComputable) {
+            var percentComplete = e.loaded / e.total;
+        } else {
+            console.log('不能计算进度');
+        }
+    }
+
+    function transferComplete(e) {
+        console.log('传输结束');
+    }
+
+    function transferFailed(evt) {
+        console.log('传输过程中发生错误');
+    }
+
+    function transferCanceled(evt) {
+        console.log('用户取消了传输');
+    }
+</script>
+</html>

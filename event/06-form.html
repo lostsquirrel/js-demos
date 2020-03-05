@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单事件</title>
+</head>
+<body>
+<label for="input_test">input 事件</label>
+<select id="input_test">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+
+<label for="select_test">select 事件</label><input id="select_test" type="text" value="Select me!" />
+
+<label for="change_test">change 事件</label>
+<select size="1" id="change_test">
+    <option>chocolate</option>
+    <option>strawberry</option>
+    <option>vanilla</option>
+</select>
+
+<form>
+    <label for="invalid_test">invalid 事件</label><input id="invalid_test" type="text" required oninvalid="console.log('invalid input')" />
+    <button type="submit">提交</button>
+</form>
+
+<label for="data_test">data 属性</label><input id="data_test" type="text"   />
+</body>
+<script>
+    function inputHandler(e) {
+        console.log(e.target.value);
+        console.log(e.data)
+    }
+
+    const mySelect = document.querySelector('#input_test');
+    mySelect.addEventListener('input', inputHandler);
+
+
+    const elem = document.getElementById('select_test');
+    elem.addEventListener('select', function (e) {
+        console.log(e.type); // "select"
+        console.log(e.target.value); //
+        console.log(e.target.value); //
+        console.log(e.target.selectionDirection);
+        console.log(e.target.selectionStart);
+        console.log(e.target.selectionEnd);
+    }, false);
+
+    const changeTest = document.getElementById('change_test');
+    changeTest.addEventListener('change', function (e) {
+        console.log(e.target.value);
+    }, false);
+
+    document.getElementById("data_test").addEventListener('input', function (e) {
+        console.log(e.data);
+        console.log(e.inputType);
+        console.log(e.dataTransfer)
+    }, false)
+
+</script>
+</html>
